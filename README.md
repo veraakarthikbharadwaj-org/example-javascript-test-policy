@@ -1,4 +1,4 @@
-# [:] Example Node.js Project - Here we are again and again - Fingers crossed
+# [:] Example Node.js Project - look for topics
 
 An example node project to demonstrate [srcclr](https://www.srcclr.com) scans.
 
