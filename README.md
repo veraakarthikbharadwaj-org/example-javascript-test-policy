@@ -1,4 +1,4 @@
-# [:] Example Node.js Project - look for topics
+# [:] Example Node.js Project - look for topics - print
 
 An example node project to demonstrate [srcclr](https://www.srcclr.com) scans.
 
