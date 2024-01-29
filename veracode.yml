@@ -1,7 +1,1 @@
-veracode_static_scan:
-  push:
-    branches_to_run:
-      - 'veraakarthikbharadwaj-patch-2'
-  policy: 'Veracode Recommended Very High'
-  compile_locally: false
-  local_compilation_workflow: na
+
