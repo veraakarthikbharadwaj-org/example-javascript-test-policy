@@ -2,7 +2,7 @@ name: Veracode SAST and SCA Scan - From source repo
 
 on:
     repository_dispatch:
-      types: [veracode-local-compilation-workflow]
+      types: [veracode-build]
 
 jobs:
   build:
