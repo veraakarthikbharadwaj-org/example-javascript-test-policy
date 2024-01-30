@@ -15,4 +15,4 @@ veracode_static_scan:
   break_build_on_error: false
   policy: 'Veracode Recommended Medium + SCA'
   compile_locally: false
-  local_compilation_workflow: na
+  local_compilation_workflow: veracode-build
