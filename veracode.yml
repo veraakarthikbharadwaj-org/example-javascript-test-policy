@@ -10,4 +10,9 @@ veracode_static_scan:
       - opened
       - synchronize
     target_branch:
-      - default_branch
+      - default_branch 
+  break_build_policy_findings: true
+  break_build_on_error: false
+  policy: 'Veracode Recommended Medium + SCA'
+  compile_locally: false
+  local_compilation_workflow: na
