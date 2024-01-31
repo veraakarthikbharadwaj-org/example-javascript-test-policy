@@ -13,6 +13,6 @@ veracode_static_scan:
       - default_branch 
   break_build_policy_findings: true
   break_build_on_error: false
-  policy: 'Veracode Recommended Medium + SCA'
+  policy: 'Veracode Recommended High + SCA'
   compile_locally: true
   local_compilation_workflow: veracode-build
