@@ -53,7 +53,7 @@ jobs:
           appname: 'Veracode GitHub App'
           createprofile: true
           version: '${{ github.run_id }}'
-          policy: 'Veracode Recommended High + SCA Random policy name'
+          veracode_policy_name: 'Veracode Recommended High + SCA Random policy name'
           filepath: ./veracode_artifact_directory/${{ env.veracode_artifact }}
           vid: '${{ secrets.VERACODE_API_ID }}'
           vkey: '${{ secrets.VERACODE_API_KEY }}'
@@ -104,5 +104,5 @@ jobs:
         with:
           vid: '${{ secrets.VERACODE_API_ID }}'
           vkey: '${{ secrets.VERACODE_API_KEY }}'
-          policy: 'Veracode Recommended High + SCA Random policy name'
+          veracode_policy_name: 'Veracode Recommended High + SCA Random policy name'
           file: ./veracode_artifact_directory/${{ env.veracode_artifact }}
