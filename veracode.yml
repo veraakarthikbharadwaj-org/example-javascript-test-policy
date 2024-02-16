@@ -1,5 +1,4 @@
 veracode_static_scan:
-  push:
-    trigger: true
   compile_locally: true
   local_compilation_workflow: veracode-build
+  analysis_branch: default_branch
