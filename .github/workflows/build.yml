@@ -1,0 +1,42 @@
+name: Veracode Build Artifact
+
+run-name: Vulnado Build Artifact - ${{ github.event.client_payload.event_type }} - ${{ github.event.client_payload.repository.branch }}
+
+on:
+  repository_dispatch:
+    types: [vulnado-build]
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    name: register
+    steps:
+      - name: Register source build
+        id: source_build
+        uses: veracode/github-actions-integration-helper@feature/DXS-342
+        with:
+          action: registerBuild
+          token: ${{ github.event.client_payload.token }}
+          appname: ${{ github.event.client_payload.user_config.profile_name }}
+          source_repository: ${{ github.event.client_payload.repository.full_name }}
+          check_run_id: ${{ github.run_id }}
+          check_run_name: ${{ github.workflow }}
+          head_sha: ${{ github.event.client_payload.sha }}
+          event_type: ${{ github.event.client_payload.event_type }}
+          branch: ${{ github.event.client_payload.repository.branch }}
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        repository: ${{ github.event.client_payload.repository.full_name }}
+        ref: ${{ github.event.client_payload.sha }}
+        token: ${{ github.event.client_payload.token }}
+
+    - name: Create zip archive
+      run: zip -r artifact.zip . -x .git/**\* bin/**\* e2e/**\* tests/**\* node_modules/**\* *.pyd *.mwb *.exe *.dll *.bin *.png *.xml *.bat *.g2p *.gp4 *.wav *.jpg *.svg *.sfx *.prx *.sb *.nrm *.config *.ini *.pdf *.dat *.docx *.whl *.so *_arm64 *_armhf *_x64 *.xlsm *.sql
+
+    - uses: actions/upload-artifact@v4
+      with:
+        path: artifact.zip
